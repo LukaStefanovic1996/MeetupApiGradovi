@@ -36,7 +36,7 @@ public class MeetupMain {
 		CityList(events);	
 		Scanner scanner = new Scanner(System.in);
 		boolean loop = true;
-		pathCode="/find/events";
+		pathCode="/2/open_events";
 		while(loop)
 		{
 			try
@@ -101,8 +101,8 @@ public class MeetupMain {
 	
 	public static void EventList(String events){	 
 		try{
-			JsonArray arr = (JsonArray) Jsoner.deserialize(events);
-
+			JsonObject obj = (JsonObject) Jsoner.deserialize(events);
+			JsonArray arr = (JsonArray) obj.get("results");
 			Iterator<Object> i = arr.iterator(); 
 			while(i.hasNext()){
 				JsonObject event = (JsonObject) i.next();
@@ -123,8 +123,6 @@ public class MeetupMain {
 				{
 					s="Nije dostupan";
 				}
-				System.out.println("Datum: "+event.get("local_date"));
-				System.out.println("Vreme: "+event.get("local_time"));
 				JsonObject venue =(JsonObject) event.get("venue");
 				if(venue!=null)
 				System.out.println("Lokacija: "+venue.get("name")+", "+venue.get("address_1"));

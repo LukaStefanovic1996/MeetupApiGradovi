@@ -46,6 +46,7 @@ public class MeetupGetter {
 			.setScheme("http")
 			.setHost("api.meetup.com")
 			.setPath(pathCode)
+			.setParameter("country", "rs")
 			.setParameter("city", city)
 			.setParameter("key", key)
 			.build();
