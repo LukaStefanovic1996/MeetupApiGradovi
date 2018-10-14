@@ -1,0 +1,1 @@
+Fajl apikey.txt ostavljen je prazan, da bi aplikacija ispravno funkcionisala potrebno je upejstovati ispravan meetup API kljuè.
